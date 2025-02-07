@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/personal-bio.git/static/css/main.724622d9.css",
+    "main.js": "/personal-bio.git/static/js/main.2708838d.js",
+    "index.html": "/personal-bio.git/index.html",
+    "main.724622d9.css.map": "/personal-bio.git/static/css/main.724622d9.css.map",
+    "main.2708838d.js.map": "/personal-bio.git/static/js/main.2708838d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.724622d9.css",
+    "static/js/main.2708838d.js"
+  ]
+}
