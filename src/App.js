@@ -12,8 +12,10 @@ function App() {
       <Header />
       <About />
       <Projects />
+      <Slider/>
 
       <Resume/>
+      <onButtonClick/>
       <Contact />
       <Footer/>
 
@@ -33,7 +35,7 @@ const Header = () => {
   return (
 
     <header className="">
-      <div class ="container">
+      <div class ="">
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">GDG</a>
@@ -59,13 +61,62 @@ const Header = () => {
       
       <div class="jumbotron">
       <motion.img animate={{rotateZ:360}} src="gilbert.jpeg" alt="Profile" className="rounded" />
-      <marquee width="60%" direction="right" height="100px">
+
+      
+<div id="trailer" class="section d-flex justify-content-center embed-responsive embed-responsive-21by9">
+  <video class="embed-responsive-item" controls autoplay loop muted>
+<source src="intro.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+</div>
+      
 <strong><motion.h1   
 animate={{rotatez:360}}>Dr Gilbert D.George</motion.h1></strong>
-</marquee>
+
       <motion.h2 
-      animate={{fontSize:50,color:'red',x:100,y:-100}}>Welcome to my personal bio website!</motion.h2></div></div>
+      animate={{fontSize:50,color:'skyblue',x:60,y:60}}>Welcome to my personal bio website! Let’s connect!</motion.h2></div></div>
     </header>
+  );
+};
+
+
+
+const onButtonClick = () => {
+ // using Java Script method to get PDF file
+ fetch("SamplePDF.pdf").then((response) => {
+  response.blob().then((blob) => {
+  
+      // Creating new object of PDF file
+      const fileURL =
+          window.URL.createObjectURL(blob);
+          
+      // Setting various property values
+      let alink = document.createElement("a");
+      alink.href = fileURL;
+      alink.download = "SamplePDF.pdf";
+      alink.click();
+  });
+});
+return (
+  <>
+      <center>
+          <h1>Welcome to Geeks for Geeks</h1>
+          <h3>
+              Click on below button to download PDF
+              file
+          </h3>
+          <button  class="btn btn-primary" onClick={onButtonClick}>
+              Download PDF
+          </button>
+      </center>
+  </>
+);
+};
+
+const Slider =() =>{
+  return(
+
+   <h1>志趣相投，成就更多</h1>
   );
 };
 
@@ -73,7 +124,7 @@ const About = () => {
   return (
    
       <section id="about" class=" bg-ligt" >
-        <div class ="container">
+        <div class ="">
 <div class="mt-4 p-5 bg-dark text-white rounded" style={{ backgroundImage: + 'url(think.jpeg)'}}>
   <h1>About </h1>
   <p>Dr Gilbert George is a dedicated and accomplished computer science
@@ -91,7 +142,7 @@ const Projects = () => {
   return (
     <section className="">
 
-<div class ="container">
+<div class ="">
 <div class="mt-4 p-5 bg-info text-white rounded">
   <h1>Application Projects </h1>
       <img src="octagon.png" class="rounded" alt="Cinque Terre"/>
@@ -109,9 +160,9 @@ const Projects = () => {
 
 const Resume = () => {
   return (
-    <section id="resume" class="container">
+    <section id="resume" class="">
       <div class="mt-4 p-5 bg-dark text-white rounded">
-       <div class="container">
+       <div class="">
    
     
     <motion.div transition={{ type: "spring" }} animate={{ scale: 1 }} > <h2 class="mb-4">Gilbert George - Curriculum Vitae</h2>   </motion.div>
@@ -214,7 +265,7 @@ const Resume = () => {
         </tr>
         <tr/>
           <td/>
-   
+          <motion.p  animate={{color:'red', rotateZ:360}}> <span class="glyphicon glyphicon-envelope"></span> <a href="CV.pdf" class="btn btn-primary">Download CV </a></motion.p>
           </div>
           </div>
 
@@ -245,7 +296,7 @@ const Footer = () => {
         + ':' + date.getMinutes() 
         + ":" + date.getSeconds()
   return (
-    <section className="footer container">
+    <section className="footer">
     <footer class="bg-dark">
   <div class="container p-4 pb-0">
 
